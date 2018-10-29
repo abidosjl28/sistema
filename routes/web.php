@@ -45,10 +45,17 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('/articulo/buscarArticuloVenta', 'ArticuloController@buscarArticuloVenta');
         Route::get('/articulo/listarArticuloVenta', 'ArticuloController@listarArticuloVenta');
         Route::get('/articulo/listarPdf','ArticuloController@listarPdf')->name('articulos_pdf');
+        
         Route::get('/proveedor', 'ProveedorController@index');
         Route::post('/proveedor/registrar', 'ProveedorController@store');
         Route::put('/proveedor/actualizar', 'ProveedorController@update');
         Route::get('/proveedor/selectProveedor', 'ProveedorController@selectProveedor');
+
+        Route::get('/ingreso', 'IngresoController@index');
+        Route::post('/ingreso/registrar', 'IngresoController@store');
+        Route::put('/ingreso/desactivar', 'IngresoController@desactivar');
+        Route::get('/ingreso/obtenerCabecera', 'IngresoController@obtenerCabecera');
+        Route::get('/ingreso/obtenerDetalles', 'IngresoController@obtenerDetalles');
 
     });
     Route::group(['middleware' => ['Almacenero']], function () {

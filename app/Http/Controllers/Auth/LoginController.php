@@ -14,6 +14,7 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
+        
         $this->validateLogin($request);        
 
         if (Auth::attempt(['usuario' => $request->usuario,'password' => $request->password,'condicion'=>1])){
